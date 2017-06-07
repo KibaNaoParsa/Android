@@ -25,16 +25,16 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    public void boxStack(View vi) {
-        String tela = pilha.toString();
-        System.out.println(tela);
+    protected void boxStack(View vi) {
+        TextView txt = (TextView) findViewById(R.id.showStack);
+        txt.setText(pilha.toString());
     }
 
 
     public void empilhar(View vi) {
         EditText txt1 = (EditText) findViewById(R.id.edtNum);
         String valor = txt1.getText().toString();
-        pilha.add(valor);
+        pilha.push(valor);
         boxStack(vi);
     }
 
@@ -44,16 +44,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void somar(View vi) {
-        // String v1 = pilha.pop();
-        // String v2 = pilha.pop();
-
         int val1 = Integer.parseInt(pilha.pop());
         int val2 = Integer.parseInt(pilha.pop());
 
         val1 += val2;
 
         String valf = String.valueOf(val1);
-        pilha.add(valf);
+        pilha.push(valf);
         boxStack(vi);
     }
 
@@ -65,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
         val1 -= val2;
 
         String valf = String.valueOf(val1);
-        pilha.add(valf);
+        pilha.push(valf);
         boxStack(vi);
     }
 
@@ -77,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
         val1 *= val2;
 
         String valf = String.valueOf(val1);
-        pilha.add(valf);
+        pilha.push(valf);
         boxStack(vi);
     }
 
@@ -89,8 +86,9 @@ public class MainActivity extends AppCompatActivity {
         val1 /= val2;
 
         String valf = String.valueOf(val1);
-        pilha.add(valf);
+        pilha.push(valf);
         boxStack(vi);
     }
 
 }
+
