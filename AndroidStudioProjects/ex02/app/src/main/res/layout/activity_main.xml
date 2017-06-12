@@ -96,15 +96,14 @@
         android:textStyle="bold" />
 
     <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:id="@+id/edtNum"
-        android:layout_alignParentTop="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_alignBottom="@+id/txtNum"
+        android:layout_alignEnd="@+id/btnDesempilhar"
         android:layout_alignParentBottom="false"
         android:layout_alignStart="@+id/btnMais"
-        android:layout_marginBottom="-10dp"
-        android:layout_alignEnd="@+id/btnDesempilhar" />
+        android:layout_marginBottom="-10dp" />
 
     <TextView
         android:id="@+id/showStack"
