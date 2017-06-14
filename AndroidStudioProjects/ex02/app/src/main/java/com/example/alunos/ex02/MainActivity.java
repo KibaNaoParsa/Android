@@ -19,7 +19,6 @@ import java.util.Stack;
 public class MainActivity extends AppCompatActivity {
 
     Deque<String> pilha = new ArrayDeque<String>();
-    Deque<String> pilha2 = new ArrayDeque<String>();
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,44 +30,35 @@ public class MainActivity extends AppCompatActivity {
         txt.setText(pilha.toString());
     }
 
-    public boolean emptyStack() {
-        pilha2 = pilha;
-        if (pilha2.pop() == NULL) {
-            return true;
-        }
-        return false;
+    public void limpar(View vi) {
+        while (pilha.size() != 0)
+            pilha.pop();
+        boxStack(vi);
     }
 
-    public boolean oneStack() {
-        pilha2 = pilha;
-
-        pilha2.pop();
-        if (pilha2.pop() == NULL) {
-            return true;
-        }
-        return false;
-
+    public boolean stackSize(View vi) {
+        if (pilha.size() <= 1)
+            return false;
+        return true;
     }
-
 
     public void empilhar(View vi) {
-        if ((!oneStack())&&(!emptyStack())) {
             EditText txt1 = (EditText) findViewById(R.id.edtNum);
             String valor = txt1.getText().toString();
             pilha.push(valor);
             boxStack(vi);
-        }
+
     }
 
     public void desempilhar(View vi) {
-        if ((!oneStack()) && (!emptyStack())) {
             pilha.pop();
             boxStack(vi);
-        }
+
     }
 
     public void somar(View vi) {
-        if ((!oneStack()) && (!emptyStack())) {
+            if (!stackSize(vi))
+                return;
 
             int val1 = Integer.parseInt(pilha.pop());
             int val2 = Integer.parseInt(pilha.pop());
@@ -78,24 +68,30 @@ public class MainActivity extends AppCompatActivity {
             String valf = String.valueOf(val1);
             pilha.push(valf);
             boxStack(vi);
-        }
+
     }
 
     public void subtrair(View vi) {
-        if ((!oneStack()) && (!emptyStack())) {
-            int val1 = Integer.parseInt(pilha.pop());
-            int val2 = Integer.parseInt(pilha.pop());
+        if (!stackSize(vi))
+            return;
+
+
+        int val1 = Integer.parseInt(pilha.pop());
+        int val2 = Integer.parseInt(pilha.pop());
 
             val1 -= val2;
 
             String valf = String.valueOf(val1);
             pilha.push(valf);
             boxStack(vi);
-        }
+
     }
 
     public void multiplicar(View vi) {
-        if ((!oneStack()) && (!emptyStack())) {
+        if (!stackSize(vi))
+            return;
+
+
             int val1 = Integer.parseInt(pilha.pop());
             int val2 = Integer.parseInt(pilha.pop());
 
@@ -104,20 +100,21 @@ public class MainActivity extends AppCompatActivity {
             String valf = String.valueOf(val1);
             pilha.push(valf);
             boxStack(vi);
-        }
+
     }
 
     public void dividir(View vi) {
-        if ((!oneStack()) && (!emptyStack())) {
-            int val1 = Integer.parseInt(pilha.pop());
-            int val2 = Integer.parseInt(pilha.pop());
+        if (!stackSize(vi))
+            return;
 
-            val1 /= val2;
+        int val1 = Integer.parseInt(pilha.pop());
+        int val2 = Integer.parseInt(pilha.pop());
 
-            String valf = String.valueOf(val1);
-            pilha.push(valf);
-            boxStack(vi);
-        }
+        val1 /= val2;
+
+        String valf = String.valueOf(val1);
+        pilha.push(valf);
+        boxStack(vi);
     }
 
 }

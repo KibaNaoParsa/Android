@@ -13,22 +13,20 @@
         android:id="@+id/btnEmpilhar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="49dp"
         android:layout_marginTop="63dp"
         android:onClick="empilhar"
-        android:text="Empilhar" />
+        android:text="Empilhar"
+        android:layout_alignParentStart="true" />
 
     <Button
         android:id="@+id/btnDesempilhar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignTop="@+id/btnEmpilhar"
-        android:layout_marginEnd="37dp"
         android:onClick="desempilhar"
-        android:text="Desempilhar" />
+        android:text="Desempilhar"
+        android:layout_alignTop="@+id/btnEmpilhar"
+        android:layout_alignParentEnd="true" />
 
     <Button
         android:id="@+id/btnMais"
@@ -114,5 +112,14 @@
         android:layout_alignTop="@+id/txtStack"
         android:layout_toEndOf="@+id/txtNum"
         android:onClick="boxStack" />
+
+    <Button
+        android:id="@+id/btnLimpar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/btnDesempilhar"
+        android:layout_centerHorizontal="true"
+        android:onClick="limpar"
+        android:text="Limpar" />
 
 </RelativeLayout>
